@@ -17,11 +17,11 @@ args = parser.parse_args()
 
 if args.list:
     giftnames = client.get("gifts")
-    print(f"List of gifts:\n{giftnames}")
+    print("List of gifts:{}".format(giftnames))
     
     if giftnames:
         for gift in [client.get(name) for name in giftnames]:
-            print(f"{gift['name']}: link - {gift['link']}, claimed - {gift['claimed']} on the {gift['claimdate']}")
+            print("{}: link - {}, claimed - {} on the {}".format(gift['name'], gift['link'], gift['claimed'], gift['claimdate']))
 
 if args.add:
     name, link = args.add[0], args.add[1]
