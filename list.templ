@@ -1,36 +1,57 @@
 <HTML>
-<HEAD><TITLE>Jenni and Tom's Gift List!</TITLE></HEAD>
+<HEAD>
+  <TITLE>Jenni and Tom's Gift List!</TITLE>
+  <LINK rel="stylesheet", href="$url_for('static', filename='style.css')">
+</HEAD>
 
 <BODY>
 
-<TABLE>
+<h2 id="heading2">Welcome to Jenni and Tom's wedding gift page!</p>
+<p id="instructions">Every online gift service we found makes you buy from thair favorite store, so please feel free to use this site for ideas and to avoid buying the same thing twice.</p>
+
+<p id="instructions">Just click the green claim button if you want to get a pirticular gift. We do not record who clicks what, but if you decide againt getting a particular gift you can click the red unclaim button to return it.</p>
+
+<TABLE id="gifts">
+
+<TR>
+<TD> Gift name </TD> <TD>  Link to an example </TD> <TD> Claim button </TD>
+</TR>
 
 #for $gift in $giftdb
 #if not $gift.claimed 
 <TR>
-<TD> $gift.name </TD> <TD> <A HREF=$gift.link>prchace link</A> </TD> 
+<TD> $gift.name </TD> <TD> <A HREF=$gift.link>purchase link</A> </TD> 
 <TD> 
-<form method="post" action="/claim/$gift.name">
-    <button type="submit">Claim</button>
-</form>
+  <form method="post" action="/claim/$gift.name">
+      <button type="submit" class="claimbutton">Claim this gift</button>
+  </form>
 </TD>
 </TR>
 #end if
 #end for
 </TABLE>
 
-<BR>
+<h2 id="heading2">Claimed gifts</h2>
+
+<TABLE id="gifts">
+
+<TR>
+<TD> Gift name </TD> <TD>  Link to an example </TD><TD> Date claimed </TD> <TD> Unclaim button </TD>
+</TR>
 
 #for $gift in $giftdb
 #if $gift.claimed 
 <TR>
-<TD> $gift.name </TD> <TD> <A HREF=$gift.link>prchace link</A> </TD> <TD> $gift.claimdate </TD>
+<TD> $gift.name </TD> <TD> <A HREF=$gift.link>purchase link</A> </TD> <TD> $gift.claimdate </TD>
+<TD> 
+  <form method="post" action="/release/$gift.name">
+      <button type="submit" class="releasebutton">Unclaim this gift</button>
+  </form>
+</TD>
 </TR>
 #end if
 #end for
 </TABLE>
-
-
 
 </BODY>
 </HTML>

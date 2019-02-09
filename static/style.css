@@ -1,0 +1,62 @@
+#gifts {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  margin: auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+#gifts td, #gifts th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#gifts tr:nth-child(even){background-color: #f2f2f2;}
+
+#gifts tr:hover {background-color: #ddd;}
+
+#gifts th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+#heading2 {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 16pt;
+}
+
+#instructions {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  font-weight: normal;
+}
+
+
+.claimbutton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.releasebutton {
+  background-color: #F25F40;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
