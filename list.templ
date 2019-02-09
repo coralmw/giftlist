@@ -1,0 +1,17 @@
+<HTML>
+<HEAD><TITLE>Jenni and Tom's Gift List!</TITLE></HEAD>
+
+<BODY>
+
+<TABLE>
+
+#for $gift, ($link, $claimed) in $giftdb.items()
+
+<TR>
+<TD> $gift </TD> <TD> <A HREF=$link>prchace link</A> </TD>
+</TR>
+#end for
+</TABLE>
+
+</BODY>
+</HTML>
