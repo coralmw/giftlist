@@ -5,13 +5,32 @@
 
 <TABLE>
 
-#for $gift, ($link, $claimed) in $giftdb.items()
-
+#for $gift in $giftdb
+#if not $gift.claimed 
 <TR>
-<TD> $gift </TD> <TD> <A HREF=$link>prchace link</A> </TD>
+<TD> $gift.name </TD> <TD> <A HREF=$gift.link>prchace link</A> </TD> 
+<TD> 
+<form method="post" action="/claim/$gift.name">
+    <button type="submit">Claim</button>
+</form>
+</TD>
 </TR>
+#end if
 #end for
 </TABLE>
+
+<BR>
+
+#for $gift in $giftdb
+#if $gift.claimed 
+<TR>
+<TD> $gift.name </TD> <TD> <A HREF=$gift.link>prchace link</A> </TD> <TD> $gift.claimdate </TD>
+</TR>
+#end if
+#end for
+</TABLE>
+
+
 
 </BODY>
 </HTML>
